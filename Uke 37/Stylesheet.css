@@ -1,2 +1,5 @@
 body {background-color: lightblue; text-align: center;}
 h1 {font-size: 50; font: Helvetica;}
+<style>
+  h1{width: 300px:border: 25px solid blue; padding:25px; margin:25px}
+</style>

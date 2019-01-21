@@ -1,0 +1,16 @@
+main{
+  width: 90%;
+  margin: auto;
+  background-color: cyan;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:30px;
+}
+
+  @media (max.width 1200px) {
+    
+
+
+.medium{
+  width:90%;
+}

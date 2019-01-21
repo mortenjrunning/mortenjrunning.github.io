@@ -1,0 +1,22 @@
+"ID":{
+  "primærnøkkel":{
+    "navn":"Morten",
+    "adresse":"Gamle Tanumvei",
+    "adresse.nr":"7",
+    "alder":"18",
+    "skole":"Sandvika VGS",
+  }
+}
+
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+    authDomain: "it01-4dae5.firebaseapp.com",
+    databaseURL: "https://it01-4dae5.firebaseio.com",
+    projectId: "it01-4dae5",
+    storageBucket: "it01-4dae5.appspot.com",
+    messagingSenderId: "942475831825"
+  };
+  firebase.initializeApp(config);
+</script>

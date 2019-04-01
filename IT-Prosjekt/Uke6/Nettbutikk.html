@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+    <link rel="stylesheet" type="text/css" href=""</link>
+<header>
+  <nav>
+    <button onclick="visAlleVarer()">Alle varer</button>
+                <button onclick="visBukser()">Bukser</button>
+                <button onclick="visSkjorter()">Skjorter</button>
+                <button>Handlekurv</button>
+                <button>Tøm handlekurv</button>
+                <input id="sokefelt" type="text">
+  </nav>
+</header>
+
+  <body>
+<main>
+
+
+
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+    authDomain: "it01-4dae5.firebaseapp.com",
+    databaseURL: "https://it01-4dae5.firebaseio.com",
+    projectId: "it01-4dae5",
+    storageBucket: "it01-4dae5.appspot.com",
+    messagingSenderId: "942475831825"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+
+  let database = firebase.database();
+            let bukser = database.ref("varer/bukser");
+            let skjorter = database.ref("varer/skjorter");
+            var sokefelt = document.getElementById("sokefelt");
+            var søketekst ="";
+
+  let main = document.querySelector("main");
+  function visVare(snapshot) {
+      let vare = snapshot.val();
+      main.innerHTML += `
+          <article>
+              <img src="bilder/${vare.bilde}">
+              <h1>${vare.merke} ${vare.modell}</h1>
+              <p>${vare.pris}</p>
+          </article>
+      `;
+  }
+  sokefelt.oninput = sok;
+  function sok () {
+      søketekst=sokefelt.value;
+      visBukser();
+
+  }
+  function visAlleVarer() {
+      bukser.on("child_added", visVare);
+      skjorter.on("child_added", visVare);
+  }
+  visAlleVarer();
+  function visAlleVarer() {
+      main.innerHTML = " "; //Fjerner alt innhold i main
+      bukser.on("child_added", visVare);
+      skjorter.on("child_added", visVare);
+  }
+  function visBukser() {
+      main.innerHTML = " ";
+      //bukser.on("child_added", visVare);
+      bukser
+          .orderByChild("merke")
+          .startAt(søketekst)
+          .endAt(søketekst + '\uf8ff')
+          .on("child_added", visVare);
+  }
+  function visSkjorter() {
+      main.innerHTML = " ";
+      skjorter.on("child_added", visVare);
+  }
+</script>
+
+
+<script src="./main.js"></script>
+
+
+<script>
+
+  const skjema = document.querySelector("#skjema");
+  const inpNavn = document.querySelector("#inpNavn");
+  const inpTelefon = document.querySelector("#inpTelefon");
+  const inpEpost = document.querySelector("#inpEpost");
+  const secKontakter = document.querySelector("#secKontakter");
+
+  const db = firebase.database();
+  const kontakter = db.ref("kontakter");
+
+  function registrerKontakt(evt) {
+      evt.preventDefault();
+      const key = inpTelefon.value;
+      const data = {
+          navn: inpNavn.value,
+          epost: inpEpost.value
+      };
+      const kontakt = kontakter.child(key);
+      kontakt.set(data);
+
+
+      skjema.reset();
+  }
+
+  
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+      authDomain: "it01-4dae5.firebaseapp.com",
+      databaseURL: "https://it01-4dae5.firebaseio.com",
+      projectId: "it01-4dae5",
+      storageBucket: "it01-4dae5.appspot.com",
+      messagingSenderId: "942475831825"
+    };
+    firebase.initializeApp(config);
+
+  </script>
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="visAlle()">Vis alle</button>
+
+        <button onclick="visKatter()">Katter Alfabetisk</button> <!-- Gjør ferdig knappene og koblingene her-->
+
+        <button onclick="visEldsteHunder()">Vis eldste hunder</button>
+
+        <button onclick="visBeigeDyr()">Vis beige dyr</button>
+
+
+      </nav>
+    </header>
+    <main>
+
+    </main>
+
+    <script>
+
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const Dyr = db.ref("Dyr")
+      const Hunder = db.ref("Dyr/Hunder");  //Fyll inn riktig referanse
+      const Katter = db.ref("Dyr/Katter");  //Lag en referanse for katter også!
+
+      function genererHTML(snapshot){
+        let dyr = snapshot.val();
+        main.innerHTML +=`
+            <article class="Dyr">
+              <h1>${dyr.Navn}</h1>
+              <img src="${dyr.Bilde}" alt="">
+              <p>Farge: ${dyr.Farge1}, ${dyr.Farge2}</p>
+              <p>Alder: ${dyr.Alder}</p>
+            </article>
+        `
+      }
+
+      function visAlle(){
+        main.innerHTML = "";
+        Hunder.on("child_added",genererHTML);
+        Katter.on("child_added",genererHTML);
+      }
+
+
+
+      function visKatter(){
+        main.innerHTML = "";
+          Katter.orderByChild("Navn")
+          Katter.on("child_added",visKatter);
+      }
+
+      function visEldsteHunder(){
+        main.innerHTML ="";
+          Hunder.orderByChild("Alder")
+          Hunder.limitToLast(3)
+          Hunder.on("child_added",genererHTML);
+      }
+
+      function visBeigeDyr() {
+        main.innerHTML = "";
+        Dyr.orderByChild("Farge")
+        Dyr.equalTo("Beige")
+        Dyr.on("child_added",genererHTML);
+
+      }
+
+
+
+
+      // Lag egne funksjoner som tilfredstiller spørringene til oppgave 3A, 3B, 3C og 3D her:
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,110 @@
+{
+    "pokemon": {
+        "100": {
+            "Name": "Voltorb",
+            "Type1": "Electric",
+            "Type2": "",
+            "MaxCP": 845,
+            "MaxHP": 75,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/d/da/100Voltorb.png/250px-100Voltorb.png"
+        },
+        "101": {
+            "Name": "Electrode",
+            "Type1": "Electric",
+            "Type2": "",
+            "MaxCP": 1657,
+            "MaxHP": 107,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/8/84/101Electrode.png/250px-101Electrode.png"
+        },
+        "102": {
+            "Name": "Exeggcute",
+            "Type1": "Grass",
+            "Type2": "Psychic",
+            "MaxCP": 1107,
+            "MaxHP": 107,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/a/af/102Exeggcute.png/250px-102Exeggcute.png"
+        },
+        "103": {
+            "Name": "Exeggutor",
+            "Type1": "Grass",
+            "Type2": "Psychic",
+            "MaxCP": 2976,
+            "MaxHP": 162,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/2/24/103Exeggutor.png/250px-103Exeggutor.png"
+        },
+        "104": {
+            "Name": "Cubone",
+            "Type1": "Ground",
+            "Type2": "",
+            "MaxCP": 1013,
+            "MaxHP": 91,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/2/2a/104Cubone.png/250px-104Cubone.png"
+        },
+        "105": {
+            "Name": "Marowak",
+            "Type1": "Ground",
+            "Type2": "",
+            "MaxCP": 1668,
+            "MaxHP": 107,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/9/98/105Marowak.png/250px-105Marowak.png"
+        },
+        "106": {
+            "Name": "Hitmonlee",
+            "Type1": "Fighting",
+            "Type2": "",
+            "MaxCP": 1503,
+            "MaxHP": 91,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/3/32/106Hitmonlee.png/250px-106Hitmonlee.png"
+        },
+        "107": {
+            "Name": "Hitmonchan",
+            "Type1": "Fighting",
+            "Type2": "",
+            "MaxCP": 1527,
+            "MaxHP": 91,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/a/a3/107Hitmonchan.png/250px-107Hitmonchan.png"
+        },
+        "108": {
+            "Name": "Lickitung",
+            "Type1": "Normal",
+            "Type2": "",
+            "MaxCP": 1638,
+            "MaxHP": 154,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/0/00/108Lickitung.png/250px-108Lickitung.png"
+        },
+        "109": {
+            "Name": "Koffing",
+            "Type1": "Poison",
+            "Type2": "",
+            "MaxCP": 1160,
+            "MaxHP": 75,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/1/17/109Koffing.png/250px-109Koffing.png"
+        },
+        "110": {
+            "Name": "Weezing",
+            "Type1": "Poison",
+            "Type2": "",
+            "MaxCP": 2266,
+            "MaxHP": 115,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/4/42/110Weezing.png/250px-110Weezing.png"
+        },
+        "111": {
+            "Name": "Rhyhorn",
+            "Type1": "Ground",
+            "Type2": "Rock",
+            "MaxCP": 1190,
+            "MaxHP": 138,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/9/9b/111Rhyhorn.png/250px-111Rhyhorn.png"
+        },
+        "112": {
+            "Name": "Rhydon",
+            "Type1": "Ground",
+            "Type2": "Rock",
+            "MaxCP": 2259,
+            "MaxHP": 178,
+            "ImageURL": "http://cdn.bulbagarden.net/upload/thumb/4/47/112Rhydon.png/250px-112Rhydon.png"
+        }
+
+      }
+
+    }

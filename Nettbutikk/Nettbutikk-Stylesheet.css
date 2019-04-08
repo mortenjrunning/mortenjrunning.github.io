@@ -29,3 +29,6 @@
 h1{}
 
 body{text-align: center;}
+nav{text-align: center;
+    background-color: lightgrey;
+  }

@@ -1,3 +1,5 @@
+//legge inn om boka er inne eller ikke? (Boolean)
+
 {
   "Bøker":{
 
@@ -7,8 +9,45 @@
     "forfatter":,
     "sjanger":,
     "passer-for":,
-  }
-
+    "forlag":,
+    "ImageURL":,
+  },
+  "Bok002":{
+    "navn":,
+    "år":,
+    "forfatter":,
+    "sjanger":,
+    "passer-for":,
+    "forlag":,
+    "ImageURL":,
+  },
+  "Bok003":{
+    "navn":,
+    "år":,
+    "forfatter":,
+    "sjanger":,
+    "passer-for":,
+    "forlag":,
+    "ImageURL":,
+  },
+  "Bok004":{
+    "navn":,
+    "år":,
+    "forfatter":,
+    "sjanger":,
+    "passer-for":,
+    "forlag":,
+    "ImageURL":,
+  },
+  "Bok005":{
+    "navn":,
+    "år":,
+    "forfatter":,
+    "sjanger":,
+    "passer-for":,
+    "forlag":,
+    "ImageURL":,
+  },
 
   }
 }

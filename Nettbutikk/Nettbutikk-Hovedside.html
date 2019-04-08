@@ -13,17 +13,49 @@
       <p>NAV</p>
     </nav>
 
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+        authDomain: "it01-4dae5.firebaseapp.com",
+        databaseURL: "https://it01-4dae5.firebaseio.com",
+        projectId: "it01-4dae5",
+        storageBucket: "it01-4dae5.appspot.com",
+        messagingSenderId: "942475831825"
+      };
+      firebase.initializeApp(config);
+    </script>
+
 <main>
 
 
 
 <div id="Hovedside">
 
-  <div class="Bestselgere"><p>Bestselere</p></div>
+  <div class="Bestselgere"><p><button onclick="visForfattere()">Forfattere</button></p></div>
   <div class="Søk"><p>Søk</p></div>
   <div class="Tilbud"><p>Tilbud</p></div>
 
 </main>
+
+<script>
+
+const main = document.querySelector("main");
+const db = firebase.database();
+const Forfattere = db.ref("Forfattere");
+function visForfattere(snapshot){
+
+function visForfattere(){
+  main.innerHTML = ``
+  Forfatter.on("child_added",visForfatter);}
+
+
+
+
+</script>
+
+
 
 <footer>
 

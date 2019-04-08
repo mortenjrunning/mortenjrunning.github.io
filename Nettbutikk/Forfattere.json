@@ -1,11 +1,40 @@
 {
   "Forfattere":{
 
-  "Forfatter001":{
-    "fornavn":,
-    "etternavn":,
-    "født":,
-    "verker":,
+  "Forfatter001": {
+    "fornavn":"Jo",
+    "etternavn":"Nesbø",
+    "født":1960,
+    "verker":"",
+    "ImageURL":""
+  },
+  "Forfatter002": {
+    "fornavn":"J.R.R",
+    "etternavn":"Tolkien",
+    "født":1892,
+    "verker":"",
+    "ImageURL":""
+  },
+  "Forfatter003": {
+    "fornavn":"George",
+    "etternavn":"Orwell",
+    "født":1903,
+    "verker":"",
+    "ImageURL":""
+  },
+  "Forfatter004": {
+    "fornavn":"John",
+    "etternavn":"Locke",
+    "født":1632,
+    "verker":"",
+    "ImageURL":""
+  },
+  "Forfatter005": {
+    "fornavn":"C.S.",
+    "etternavn":"Lewis",
+    "født":1898,
+    "verker":"",
+    "ImageURL":""
   }
 
 

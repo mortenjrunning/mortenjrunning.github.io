@@ -11,6 +11,7 @@
     "passer-for":,
     "forlag":,
     "ImageURL":,
+    "pris":,
   },
   "Bok002":{
     "navn":,
@@ -20,6 +21,7 @@
     "passer-for":,
     "forlag":,
     "ImageURL":,
+    "pris":,
   },
   "Bok003":{
     "navn":,
@@ -29,6 +31,7 @@
     "passer-for":,
     "forlag":,
     "ImageURL":,
+    "pris":,
   },
   "Bok004":{
     "navn":,
@@ -38,6 +41,7 @@
     "passer-for":,
     "forlag":,
     "ImageURL":,
+    "pris":,
   },
   "Bok005":{
     "navn":,
@@ -47,6 +51,7 @@
     "passer-for":,
     "forlag":,
     "ImageURL":,
+    "pris":,
   },
 
   }

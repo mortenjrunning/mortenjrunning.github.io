@@ -1,46 +1,90 @@
-{
-  "Forfattere":{
+  {
+  "forfatter":{
 
   "Forfatter001": {
     "fornavn":"Jo",
     "etternavn":"Nesbø",
     "født":1960,
-    "verker":"",
+    "bestselger":"Snøjøden",
+    "bøker":[
+      {
+        "tittel":"Ringens brorskap",
+        "Pris":299
+    },
+      {
+        "tittel":"To tårn",
+        "Pris":299
+      }
+  ],
     "ImageURL":""
   },
   "Forfatter002": {
     "fornavn":"J.R.R",
     "etternavn":"Tolkien",
     "født":1892,
-    "verker":"",
+    "bestselger":"Ringenes diktator",
+    "bøker":[
+      {
+        "tittel":"Ringens brorskap",
+        "Pris":299
+    },
+      {
+        "tittel":"To tårn",
+        "Pris":299
+      }
+  ],
     "ImageURL":""
   },
   "Forfatter003": {
     "fornavn":"George",
     "etternavn":"Orwell",
     "født":1903,
-    "verker":"",
+    "bestselger":"Lmo",
+    "bøker":[
+      {
+        "tittel":"Ringens brorskap",
+        "Pris":299
+    },
+      {
+        "tittel":"To tårn",
+        "Pris":299
+      }
+  ],
     "ImageURL":""
   },
   "Forfatter004": {
     "fornavn":"John",
     "etternavn":"Locke",
     "født":1632,
-    "verker":"",
+    "bestselger":"lomlom",
+    "bøker":[
+      {
+        "tittel":"Ringens brorskap",
+        "Pris":299
+    },
+      {
+        "tittel":"To tårn",
+        "Pris":299
+      }
+  ],
     "ImageURL":""
   },
   "Forfatter005": {
     "fornavn":"C.S.",
     "etternavn":"Lewis",
     "født":1898,
-    "verker":"",
+    "bestselger":"Crack101",
+    "bøker":[
+      {
+        "tittel":"Ringens brorskap",
+        "Pris":299
+    },
+      {
+        "tittel":"To tårn",
+        "Pris":299
+      },
+  ],
     "ImageURL":""
   }
-
-
-
-
-
-
-  }
+}
 }

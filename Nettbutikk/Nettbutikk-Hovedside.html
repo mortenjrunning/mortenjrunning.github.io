@@ -13,44 +13,97 @@
       <p>NAV</p>
     </nav>
 
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
-        authDomain: "it01-4dae5.firebaseapp.com",
-        databaseURL: "https://it01-4dae5.firebaseio.com",
-        projectId: "it01-4dae5",
-        storageBucket: "it01-4dae5.appspot.com",
-        messagingSenderId: "942475831825"
-      };
-      firebase.initializeApp(config);
-    </script>
-
 <main>
 
 
+  <article class="Artikler" id="artBestselgere">
+    <h1>Bestselgere</h1>
+    <div id="divBestselgere">
 
-<div id="Hovedside">
+  </div>
+</article>
+  <article class="Artikler" id="artAlle">
+  <div id="divSøk">
+    <h1>Søk</h1>
+    <input type="text" id="inpSøk" onkeyup="søk()" placeholder="Søk etter forfatter/bok">
+  </div>
+    <div id="divAlle">
 
-  <div class="Bestselgere"><p><button onclick="visForfattere()">Forfattere</button></p></div>
-  <div class="Søk"><p>Søk</p></div>
-  <div class="Tilbud"><p>Tilbud</p></div>
+    </div>
+  </article>
+
+  <div id="divTilbud"><p>Tilbud</p></div>
 
 </main>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+    authDomain: "it01-4dae5.firebaseapp.com",
+    databaseURL: "https://it01-4dae5.firebaseio.com",
+    projectId: "it01-4dae5",
+    storageBucket: "it01-4dae5.appspot.com",
+    messagingSenderId: "942475831825"
+  };
+  firebase.initializeApp(config);
+</script>
 
 <script>
 
 const main = document.querySelector("main");
 const db = firebase.database();
-const Forfattere = db.ref("Forfattere");
-function visForfattere(snapshot){
+const forfatter = db.ref("forfatter");
+let divAlle = document.querySelector("#divAlle");
+let btnVisAlle = document.querySelector("#btnVisAlle");
+let divBestselgere = document.querySelector("#divBestselgere");
 
-function visForfattere(){
-  main.innerHTML = ``
-  Forfatter.on("child_added",visForfatter);}
+  function visForfatter(snapshot){
+    let forfatterSnap = snapshot.val();
+  divAlle.innerHTML+=`
+    <article class="forfatter">
+      <h1>${forfatterSnap.fornavn} ${forfatterSnap.etternavn}</h1>
+      <p>Født i ${forfatterSnap.født}</p>
+      <p>Kjente verker:</p>
+      <table style="width:100%">
+      <tr>
+        <th>Tittel</th>
+        <th>Pris (kr)<th>
+      </tr>
+      <tr>
+        <td>${forfatterSnap.bøker[0].tittel}</td>
+        <td>${forfatterSnap.bøker[0].Pris}</td>
+      </tr>
+      <tr>
+        <td>${forfatterSnap.bøker[1].tittel}</td>
+        <td>${forfatterSnap.bøker[1].Pris}</td>
+      </tr>
+
+      </table>
+    </article>
+  `;
+
+  let td
+};
+
+let visBestselgere = function(snapshot){
+  let forfatterSnap = snapshot.val();
+  divBestselgere.innerHTML+=`
+  <article class="forfatter">
+    <h2>${forfatterSnap.bestselger}</h2>
+    <h2>${forfatterSnap.etternavn}</h2>
+    <p>Bestselger: ${forfatterSnap.bestselger}</p>
+  </article>
+  `
+};
 
 
+
+
+  forfatter.on("child_added",visForfatter);
+
+  forfatter.on("child_added",visBestselgere);
 
 
 </script>

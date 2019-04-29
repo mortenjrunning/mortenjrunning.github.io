@@ -9,8 +9,17 @@
   <body>
 <h1>Nettbutikk</h1>
 
+<!--legg inn flexboks for nav -->
+
     <nav>
-      <p>NAV</p>
+
+  <div id="nav">
+    <div class="Inventar">Inventar</div>
+    <div class="">Handle</div>
+
+      <p>Inventar</p>
+      <p>Handlekurv</p>
+      <p></p>
     </nav>
 
 <main>
@@ -32,8 +41,12 @@
     </div>
   </article>
 
-  <div id="divTilbud"><p>Tilbud</p></div>
+  <article>
+  <h1>Tilbud</h1>
+  <div id="divTilbud">
 
+  </div>
+</article>
 </main>
 
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
@@ -52,6 +65,9 @@
 
 <script>
 
+
+//refererer til HTML-elementer
+
 const main = document.querySelector("main");
 const db = firebase.database();
 const forfatter = db.ref("forfatter");
@@ -59,6 +75,8 @@ let divAlle = document.querySelector("#divAlle");
 let btnVisAlle = document.querySelector("#btnVisAlle");
 let divBestselgere = document.querySelector("#divBestselgere");
 
+
+//Funksjon som henter ut informasjon om forfatterene fra databasen, og putter inn i en ny artikkel for hver
   function visForfatter(snapshot){
     let forfatterSnap = snapshot.val();
   divAlle.innerHTML+=`
@@ -87,6 +105,8 @@ let divBestselgere = document.querySelector("#divBestselgere");
   let td
 };
 
+
+//skriver ut artikler med bestselgere, fra databasen
 let visBestselgere = function(snapshot){
   let forfatterSnap = snapshot.val();
   divBestselgere.innerHTML+=`
@@ -100,7 +120,7 @@ let visBestselgere = function(snapshot){
 
 
 
-
+//aktiverer funksjonene
   forfatter.on("child_added",visForfatter);
 
   forfatter.on("child_added",visBestselgere);

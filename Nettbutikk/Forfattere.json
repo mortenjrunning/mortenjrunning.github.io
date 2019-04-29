@@ -1,18 +1,18 @@
-  {
+{
   "forfatter":{
 
   "Forfatter001": {
     "fornavn":"Jo",
     "etternavn":"Nesbø",
     "født":1960,
-    "bestselger":"Snøjøden",
+    "bestselger":"Gjenferd",
     "bøker":[
       {
-        "tittel":"Ringens brorskap",
+        "tittel":"Gjenferd",
         "Pris":299
     },
       {
-        "tittel":"To tårn",
+        "tittel":"Politi",
         "Pris":299
       }
   ],
@@ -22,7 +22,7 @@
     "fornavn":"J.R.R",
     "etternavn":"Tolkien",
     "født":1892,
-    "bestselger":"Ringenes diktator",
+    "bestselger":"Ringens brorskap",
     "bøker":[
       {
         "tittel":"Ringens brorskap",
@@ -31,7 +31,7 @@
       {
         "tittel":"To tårn",
         "Pris":299
-      }
+    }
   ],
     "ImageURL":""
   },
@@ -39,14 +39,14 @@
     "fornavn":"George",
     "etternavn":"Orwell",
     "født":1903,
-    "bestselger":"Lmo",
+    "bestselger":"1984",
     "bøker":[
       {
-        "tittel":"Ringens brorskap",
+        "tittel":"Animal farm",
         "Pris":299
     },
       {
-        "tittel":"To tårn",
+        "tittel":"1984",
         "Pris":299
       }
   ],
@@ -56,7 +56,7 @@
     "fornavn":"John",
     "etternavn":"Locke",
     "født":1632,
-    "bestselger":"lomlom",
+    "bestselger":"",
     "bøker":[
       {
         "tittel":"Ringens brorskap",
@@ -73,16 +73,16 @@
     "fornavn":"C.S.",
     "etternavn":"Lewis",
     "født":1898,
-    "bestselger":"Crack101",
+    "bestselger":"Narnia: Løven heksa og klesskapet",
     "bøker":[
       {
-        "tittel":"Ringens brorskap",
+        "tittel":"Narnia: Løven heksa og klseskapet",
         "Pris":299
     },
       {
-        "tittel":"To tårn",
+        "tittel":"Narnia: Sølvstolen",
         "Pris":299
-      },
+      }
   ],
     "ImageURL":""
   }

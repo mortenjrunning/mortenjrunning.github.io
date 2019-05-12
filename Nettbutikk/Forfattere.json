@@ -6,14 +6,21 @@
     "etternavn":"Nesbø",
     "født":1960,
     "bestselger":"Gjenferd",
+    "tilbud":"Politi",
+    "språk":"Norsk",
+    "sjanger":"Krim",
     "bøker":[
       {
         "tittel":"Gjenferd",
-        "Pris":299
+        "Pris":299,
+        "sjanger":"Krim",
+        "bilde":"Nettbutikk-Bilder/Gjenferd1.jng.png"
     },
       {
         "tittel":"Politi",
-        "Pris":299
+        "Pris":199,
+        "sjanger":"Krim",
+        "bilde":"Nettbutikk-Bilder/Politi1.png"
       }
   ],
     "ImageURL":""
@@ -23,68 +30,103 @@
     "etternavn":"Tolkien",
     "født":1892,
     "bestselger":"Ringens brorskap",
+    "tilbud":"Hobbiten",
+    "språk":"Norsk",
+    "sjanger":"Fantasy",
     "bøker":[
       {
         "tittel":"Ringens brorskap",
-        "Pris":299
+        "Pris":299,
+        "sjanger":"Fantasy",
+        "bilde":"Nettbutikk-Bilder/RingensBrorskap1.png"
     },
+    {
+     "tittel":"Hobbiten",
+     "Pris":149,
+     "sjanger":"Fantasy",
+     "bilde":"Nettbutikk-Bilder/Hobbiten1.png"
+   },
       {
         "tittel":"To tårn",
-        "Pris":299
+        "Pris":299,
+        "sjanger":"Fantasy",
+        "bilde":"Nettbutikk-Bilder/"
     }
   ],
-    "ImageURL":""
+    "ImageURL":"../Nettbutikk-Bilder/"
   },
   "Forfatter003": {
     "fornavn":"George",
     "etternavn":"Orwell",
     "født":1903,
     "bestselger":"1984",
+    "tilbud":"Animal farm",
+    "språk":"Engelsk",
+    "sjanger":"Science fiction",
     "bøker":[
-      {
-        "tittel":"Animal farm",
-        "Pris":299
-    },
       {
         "tittel":"1984",
-        "Pris":299
-      }
+        "Pris":199,
+        "sjanger":"Science fiction",
+        "bilde":"Nettbutikk-Bilder/19841.png"
+      },
+      {
+        "tittel":"Animal farm",
+        "Pris":99,
+        "sjanger":"Politisk satire",
+        "bilde":"Nettbutikk-Bilder/AnimalFarm1.png"
+    }
+
   ],
-    "ImageURL":""
+    "ImageURL":"../Nettbutikk-Bilder/"
   },
   "Forfatter004": {
-    "fornavn":"John",
-    "etternavn":"Locke",
-    "født":1632,
-    "bestselger":"",
+    "fornavn":"Jordan",
+    "etternavn":"Peterson",
+    "født":1962,
+    "bestselger":"12 Rules for Life",
+    "tilbud":"Maps of meaning",
+    "språk":"Engelsk",
+    "sjanger":"Faglitteratur",
     "bøker":[
       {
-        "tittel":"Ringens brorskap",
-        "Pris":299
+        "tittel":"12 Rules for Life",
+        "Pris":299,
+        "sjanger":"Faglitteratur",
+        "bilde":"Nettbutikk-Bilder/12rules1.png"
     },
       {
-        "tittel":"To tårn",
-        "Pris":299
+        "tittel":"Maps of meaning",
+        "Pris":199,
+        "sjanger":"Faglitteratur",
+        "bilde":"Nettbutikk-Bilder/Maps1.png"
       }
   ],
-    "ImageURL":""
+    "ImageURL":"../Nettbutikk-Bilder/"
   },
   "Forfatter005": {
     "fornavn":"C.S.",
     "etternavn":"Lewis",
     "født":1898,
     "bestselger":"Narnia: Løven heksa og klesskapet",
+    "tilbud":"Narnia: Sølvstolen",
+    "språk":"Norsk",
+    "sjanger":"Fantasy",
     "bøker":[
       {
-        "tittel":"Narnia: Løven heksa og klseskapet",
-        "Pris":299
+        "tittel":"Narnia: Løven heksa og klesskapet",
+        "Pris":199,
+        "sjanger":"Fantasy",
+        "bilde":"Nettbutikk-Bilder/LHK1.png"
     },
       {
         "tittel":"Narnia: Sølvstolen",
-        "Pris":299
+        "Pris":99,
+        "sjanger":"Fantasy",
+        "bilde":"Nettbutikk-Bilder/Sølvstolen.png"
       }
   ],
-    "ImageURL":""
+    "ImageURL":"../Nettbutikk-Bilder/"
   }
 }
 }

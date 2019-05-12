@@ -5,21 +5,26 @@
     <title>Nettbutikk</title>
 
   </head>
+  <style>
+  main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: auto;
+    grid-gap: 20px;
+  }
+  </style>
   <link rel="stylesheet" type="text/css" href="C:\Users\morty\Documents\GitHub\mortenjrunning.github.io\Nettbutikk\Nettbutikk-Stylesheet.css"</link>
   <body>
-<h1>Nettbutikk</h1>
-
+<h3>Biblos</h3>
+<p>"Alle bøkene du trenger"</p>
 <!--legg inn flexboks for nav -->
 
     <nav>
 
   <div id="nav">
-    <div class="Inventar">Inventar</div>
-    <div class="">Handle</div>
-
-      <p>Inventar</p>
-      <p>Handlekurv</p>
-      <p></p>
+    <div class="Inventar"><a style="text-decoration: none; color:white;" href="Bibliotek.html">Inventar</a></div>
+    <div class="Handlekurv"><a style="text-decoration: none; color:white;" href="../.html">Handlekurv</a></div>
+    <div class="Hjem"><a style="text-decoration: none; color:white;" href="Nettbutikk-Hovedside.html">Hovedsiden</a></div>
     </nav>
 
 <main>
@@ -32,21 +37,17 @@
   </div>
 </article>
   <article class="Artikler" id="artAlle">
-  <div id="divSøk">
-    <h1>Søk</h1>
-    <input type="text" id="inpSøk" onkeyup="søk()" placeholder="Søk etter forfatter/bok">
-  </div>
+    <h1>Sorter</h1>
     <div id="divAlle">
-
     </div>
-  </article>
+</article>
 
-  <article>
+  <article class="Artikler" id="artTilbud">
   <h1>Tilbud</h1>
   <div id="divTilbud">
-
   </div>
-</article>
+  </article>
+
 </main>
 
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
@@ -74,6 +75,8 @@ const forfatter = db.ref("forfatter");
 let divAlle = document.querySelector("#divAlle");
 let btnVisAlle = document.querySelector("#btnVisAlle");
 let divBestselgere = document.querySelector("#divBestselgere");
+let divTilbud = document.querySelector("#divTilbud");
+let selectSjanger = document.querySelector("#selectSjanger");
 
 
 //Funksjon som henter ut informasjon om forfatterene fra databasen, og putter inn i en ny artikkel for hver
@@ -98,6 +101,9 @@ let divBestselgere = document.querySelector("#divBestselgere");
         <td>${forfatterSnap.bøker[1].Pris}</td>
       </tr>
 
+
+
+
       </table>
     </article>
   `;
@@ -109,21 +115,41 @@ let divBestselgere = document.querySelector("#divBestselgere");
 //skriver ut artikler med bestselgere, fra databasen
 let visBestselgere = function(snapshot){
   let forfatterSnap = snapshot.val();
+  let key = snapshot.key;
   divBestselgere.innerHTML+=`
   <article class="forfatter">
     <h2>${forfatterSnap.bestselger}</h2>
     <h2>${forfatterSnap.etternavn}</h2>
-    <p>Bestselger: ${forfatterSnap.bestselger}</p>
+    <h1>Bestselger: ${forfatterSnap.bestselger}</h1>
+    <img src="${forfatterSnap.bøker[0].bilde}">
+    <a href="Nettbutikk-Underside.html?id=${key}">Vis mer</a>
   </article>
   `
 };
 
+let visTilbud = function(snapshot){
+  let forfatterSnap = snapshot.val();
+  let key = snapshot.key;
+  divTilbud.innerHTML+=`
+  <article class = "tilbud">
+    <h2>Tilbud!</h2>
+    <h2>${forfatterSnap.tilbud}</h2>
+    <p>av</p>
+    <h2>${forfatterSnap.etternavn}</h2>
+    <img src="${forfatterSnap.bøker[1].bilde}">
+    <a href="Nettbutikk-Underside.html?id=${key}">Vis mer</a>
+  </article>
+  `
+};
 
 
 //aktiverer funksjonene
   forfatter.on("child_added",visForfatter);
 
   forfatter.on("child_added",visBestselgere);
+
+  forfatter.on("child_added",visTilbud);
+
 
 
 </script>

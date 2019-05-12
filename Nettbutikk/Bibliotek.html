@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bibliotek</title>
+    <style>
+      #divAlle{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 15px;
+      }
+      #divAlle>article{
+        border: 1px black solid;
+        border-radius: 5%;
+        padding: 10px 10px
+      }
+
+      article.forfatter{margin-bottom: 8px; margin-top: 8px;}
+
+    </style>
+  </head>
+    <link rel="stylesheet" type="text/css" href="C:\Users\morty\Documents\GitHub\mortenjrunning.github.io\Nettbutikk\Nettbutikk-Stylesheet.css"</link>
+  <body>
+<h1>Biblos</h1>
+    <nav>
+
+  <div id="nav">
+    <div class="Inventar"><a style="text-decoration: none; color:white;" href="Bibliotek.html">Inventar</a></div>
+    <div class="Handlekurv"><a style="text-decoration: none; color:white;" href="../.html">Handlekurv</a></div>
+    <div class="Hjem"><a style="text-decoration: none; color:white;" href="Nettbutikk-Hovedside.html">Hovedsiden</a></div>
+
+    </nav>
+
+    <main>
+
+      <h1>Inventar</h1>
+      <p>Her kan du finne alt vi selger.</p>
+<br>
+      <div>
+          <button type="button" onclick="forfatterNorsk()"><p>Norske forfattere</p></button>
+          <button type="button" onclick="forfatterEngelsk()"><p>Engelske forfatter</p></button>
+          <button type="button" onclick="sjangerKrim()"><p>Krim</p></button>
+          <button type="button" onclick="sjangerFantasy()"><p>Fantasy</p></button>
+          <button type="button" onclick="sjangerScience()"><p>Science-fiction</p></button>
+          <button type="button" onclick="sjangerFaglitteratur()"><p>Faglitteratur</p></button>
+
+        </div>
+
+        <section id="secForfatter">
+
+        </section>
+
+    </main>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+      authDomain: "it01-4dae5.firebaseapp.com",
+      databaseURL: "https://it01-4dae5.firebaseio.com",
+      projectId: "it01-4dae5",
+      storageBucket: "it01-4dae5.appspot.com",
+      messagingSenderId: "942475831825"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script>
+
+  const main = document.querySelector("#secForfatter");
+  const db = firebase.database();
+  const forfatter = db.ref("forfatter");
+  let divAlle = document.querySelector("#divAlle");
+  let btnVisAlle = document.querySelector("#btnVisAlle");
+
+
+  function visForfatter(snapshot){
+    let forfatterSnap = snapshot.val();
+    let key = snapshot.key;
+  main.innerHTML+=`
+    <article class="forfatter">
+      <h1>${forfatterSnap.fornavn} ${forfatterSnap.etternavn}</h1>
+      <p>Født i ${forfatterSnap.født}</p>
+      <p>Kjente verker:</p>
+      <table style="width:100%">
+      <tr>
+        <th>Tittel</th>
+        <th>Pris (kr)<th>
+      </tr>
+      <tr>
+        <td>${forfatterSnap.bøker[0].tittel}</td>
+        <td>${forfatterSnap.bøker[0].Pris}</td>
+      </tr>
+      <tr>
+        <td>${forfatterSnap.bøker[1].tittel}</td>
+        <td>${forfatterSnap.bøker[1].Pris}</td>
+      </tr>
+
+    </table>
+    <a href="Nettbutikk-Underside.html?id=${key}">Vis mer</a>
+  </article>
+  `;
+
+    let td
+  };
+
+    forfatter.on("child_added",visForfatter);
+
+    function forfatterNorsk(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("språk").equalTo("Norsk").on("child_added",visForfatter);
+    };
+
+    function forfatterEngelsk(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("språk").equalTo("Engelsk").on("child_added",visForfatter);
+    };
+
+    function sjangerKrim(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("sjanger").equalTo("Krim").on("child_added",visForfatter);
+    };
+
+    function sjangerFantasy(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("sjanger").equalTo("Fantasy").on("child_added",visForfatter);
+    };
+
+    function sjangerScience(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("sjanger").equalTo("Science fiction").on("child_added",visForfatter);
+    };
+
+    function sjangerFaglitteratur(){
+      main.innerHTML = ``;
+      forfatter.orderByChild("sjanger").equalTo("Faglitteratur").on("child_added",visForfatter);
+    };
+
+
+
+</script>
+<script>
+
+
+
+};
+</script>
+
+
+
+<button onclick="goBack()">Tilbake</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+</html>

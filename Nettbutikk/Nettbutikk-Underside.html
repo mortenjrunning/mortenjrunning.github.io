@@ -3,24 +3,128 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+        authDomain: "it01-4dae5.firebaseapp.com",
+        databaseURL: "https://it01-4dae5.firebaseio.com",
+        projectId: "it01-4dae5",
+        storageBucket: "it01-4dae5.appspot.com",
+        messagingSenderId: "942475831825"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <style>
+
+    body{background-color: lightgrey;}
+
+    * {
+      text-align: center;
+      font-family: sans-serif;
+    }
+
+    #nav{display: grid;
+         grid-template-columns: repeat(3,1fr);
+    }
+
+    nav{text-align: center;
+        background-color: black;
+        margin-top: 25px;
+      }
+
+    .forfatter_alt{
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      border: 1px solid black;
+      margin-bottom: 15px;
+      background-color: #045FB4;
+    }
+
+
+
+    h2{
+      font-size: 30px;
+    }
+
+
+
+    </style>
   </head>
-  <link rel="stylesheet" type="text/css" href="C:\Users\morty\Documents\GitHub\mortenjrunning.github.io\Nettbutikk\Nettbutikk-Stylesheet.css"</link>
   <body>
 
-    <h1>Nettbutikk</h1>
+    <h1>Biblos</h1>
 
-        <nav>
-          <p>NAV</p>
-        </nav>
+    <nav>
+
+    <div id="nav">
+    <div class="Inventar"><a style="text-decoration: none; color:white;" href="Bibliotek.html">Inventar</a></div>
+    <div class="Handlekurv"><a style="text-decoration: none; color:white;" href="../.html">Handlekurv</a></div>
+    <div class="Hjem"><a style="text-decoration: none; color:white;" href="Nettbutikk-Hovedside.html">Hovedsiden</a></div>
+    </nav>
 
 <main>
 
-<div id="Underside">
-  <div class="Treff"><p>Treff</p></div>
-  <div class="Søk"><p>Søk</p></div>
+<section id="secForfatter">
+
+</section>
 
 
 </main>
 
-  </body>
+<script type="text/javascript">
+  const main = document.querySelector("main");
+      // koden som henter key-verdien fra forrige side:
+        let url_string = window.location.href;
+        let url = new URL(url_string);
+        let id = url.searchParams.get("id");
+        let secForfatter = document.querySelector("#secForfatter");
+        // Referanser til databasen
+        const db = firebase.database();
+        const valgtforfatter = db.ref("forfatter/" + id );
+
+        valgtforfatter.on("value",genererforfatter);
+
+        function genererforfatter(snapshot){
+          let object = snapshot.val();
+          console.log(object);
+          secForfatter.innerHTML =`
+          <section class="forfatter_alt">
+              <div class="forfatter_overskrift">
+                <h2>${object.fornavn} ${object.etternavn}</h2>
+              </div>
+              <div class="kjøp_info_tekst">
+                <div class="tekst">
+                  <p>Født: ${object.født}<p>
+                </div>
+                <div class="tekst">
+                  <p>Bestselger: ${object.bestselger}<p>
+                </div>
+                <div class="tekst">
+                  <p>Tilbud: ${object.tilbud}<p>
+                </div>
+              </div>
+              <div class="forfatter_bøker">
+                <h1>Verker</h1>
+                  <p id="p1">
+                    ${object.bøker[0].tittel}
+                  </p>
+                  <p id="p2">
+                   ${object.bøker[1].tittel}
+                  </p>
+              </div>
+            </section>
+
+        `}
+</script>
+</body>
+
+<button onclick="goBack()">Tilbake</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </html>

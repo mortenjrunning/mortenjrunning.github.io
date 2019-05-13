@@ -42,7 +42,7 @@
 }
 
 #divBestselgere>article{
-  display: grid;
+  display: block;
   background-color: #045FB4;
   color: white;
   -webkit-text-stroke: 0.3px black;
@@ -50,6 +50,11 @@
   font-weight: bold;
   justify-content: center;
 
+}
+
+#divBestselgere>article>img.center{
+  display: block;
+  margin: 0 auto;
 }
 
 a{

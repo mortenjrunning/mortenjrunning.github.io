@@ -1,0 +1,23 @@
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 7px;
+  background-color: grey;
+}
+body{
+  text-align: center;
+  background-color: grey;
+  ;
+}
+a{color: white;}
+
+main div{
+  padding: 10px;
+  background-color: black;
+}
+#divLenker >article:hover{box-shadow: 2px 2px 5px 5px blue;}
+#divBestselgere >article:hover{box-shadow: 2px 2px 5px 5px gray;}
+#divAlle >article:hover{box-shadow: 2px 2px 5px 5px gray;}
+
+h1{outline-color: white;}
+.Oppgaver42{grid-column: 1 / 3;}

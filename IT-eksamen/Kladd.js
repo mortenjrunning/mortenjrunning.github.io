@@ -12,7 +12,7 @@ function genererHTML(snap){
 
       <h1>${messe.navn}</h1>
       <p>Adresse:${messe.adresse}</p>
-      <p>Type bil:${messe.type}</p>
+      <p>Type kjøretøy:${messe.type}</p>
       <p>Ønsket plass:${messe.plass}</p>
       <p>Tlf:${snap.key}</p>
       <a href="messeDetaljer.html?id=${key}"> Detaljer </a>

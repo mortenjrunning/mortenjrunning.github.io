@@ -22,13 +22,16 @@
   </head>
   <body>
     <main>
+
+
+
       <script>
 
         let url_string = window.location.href;
         let url = new URL(url_string);
         let id = url.searchParams.get("id");
 
-        main = dicument-querySelector("main");
+        main = document.querySelector("main");
 
         const db = firebase.database();
         const messe = db.ref("Deltagere/" + id);
@@ -36,22 +39,31 @@
         function genererHTML(snap){
           valgtDeltager = snap.val();
           key = snap.key;
+          console.log(valgtDeltager);
           main.innerHTML = `
 
-          <h1>${messe.navn}</h1>
-          <p>${messe.adresse}</p>
-          <p>${messe.key}</p>
-          <p>${messe.type}</p>
-          <p>${messe.plass}</p>
+          <h1>Navn: ${valgtDeltager.navn}</h1>
+          <p>Adresse: ${valgtDeltager.adresse}</p>
+          <p>Tlf: ${key}</p>
+          <p>Type kjøretøy: ${valgtDeltager.type}</p>
+          <p>Øsket plass: ${valgtDeltager.plass}</p>
 
           `
-          
         }
+
+          messe.on("value",genererHTML);
+
+          function slettDeltager(){
+            messe.remove()
+          }
+
 
       </script>
 
 
 
     </main>
+    <button onclick="slettDeltager()">Fjern deltager</button>
+
   </body>
 </html>

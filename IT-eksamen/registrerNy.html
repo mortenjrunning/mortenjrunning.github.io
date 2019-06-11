@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registrer</title>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+          authDomain: "it01-4dae5.firebaseapp.com",
+          databaseURL: "https://it01-4dae5.firebaseio.com",
+          projectId: "it01-4dae5",
+          storageBucket: "it01-4dae5.appspot.com",
+          messagingSenderId: "942475831825"
+        };
+        firebase.initializeApp(config);
+      </script>
+  </head>
+  <body>
+    <main>
+
+  <section>
+        <form id="skjema">
+            <input id="inpNavn" type="text" required placeholder="Navn">
+            <input id="inpAdresse" type="text" required placeholder="Adresse">
+            <input id="inpTelefon" type="text" required placeholder="Telefon">
+            <input id="inpType" type="text" required placeholder="Type kjøretøy">
+            <input id="inpPlass" type="text" required placeholder="Ønsket plass">
+            <button type="submit">Registrer</button>
+        </form>
+    </section>
+    <section id="secDeltagere">
+    </section>
+
+
+    <script>
+    // HTML-elementer. Definerer navn for HTML-elementene jeg trenger
+    const skjema = document.querySelector("#skjema");
+    const inpNavn = document.querySelector("#inpNavn");
+    const inpAdresse = document.querySelector("#inpAdresse");
+    const inpTelefon = document.querySelector("#inpTelefon");
+    const inpType = document.querySelector("#inpType");
+    const inpPlass = document.querySelector("#inpPlass");
+
+    // Refererer til firebase
+    const db = firebase.database();
+    const messe = db.ref("Deltagere");
+    // Registrerer en ny deltager
+    function registrerDeltager() {
+        //velger tlf som primærnøkkel
+        const key = inpTelefon.value;
+        //Fyller inn resterende data i elementet
+        const data = {
+            navn: inpNavn.value,
+            addresse: inpAdresse.value,
+            type: inpType.value,
+            plass: inpPlass.value
+        };
+        //kobler til riktig sted i database ved å angi primærnøkkel
+        const deltagere = messe.child(key);
+        //legger inn dataen til databasen
+        deltagere.set(data);
+
+        // Nuller ut skjemaet
+        skjema.reset();
+    }
+    // Knytter funksjonen til hendelsen at skjemaet blir sendt inn
+    //Når "submit" knappen trykkes kjøres denne funksjonen
+    skjema.addEventListener("submit", registrerDeltager);
+    </script>
+    </main>
+  </body>
+</html>

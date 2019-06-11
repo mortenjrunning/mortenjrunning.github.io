@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Detaljer</title>
+
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+          <script>
+            // Initialize Firebase
+            var config = {
+              apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+              authDomain: "it01-4dae5.firebaseapp.com",
+              databaseURL: "https://it01-4dae5.firebaseio.com",
+              projectId: "it01-4dae5",
+              storageBucket: "it01-4dae5.appspot.com",
+              messagingSenderId: "942475831825"
+            };
+            firebase.initializeApp(config);
+          </script>
+
+  </head>
+  <body>
+    <main>
+      <script>
+
+        let url_string = window.location.href;
+        let url = new URL(url_string);
+        let id = url.searchParams.get("id");
+
+        main = dicument-querySelector("main");
+
+        const db = firebase.database();
+        const messe = db.ref("Deltagere/" + id);
+
+        function genererHTML(snap){
+          valgtDeltager = snap.val();
+          key = snap.key;
+          main.innerHTML = `
+
+          <h1>${messe.navn}</h1>
+          <p>${messe.adresse}</p>
+          <p>${messe.key}</p>
+          <p>${messe.type}</p>
+          <p>${messe.plass}</p>
+
+          `
+          
+        }
+
+      </script>
+
+
+
+    </main>
+  </body>
+</html>

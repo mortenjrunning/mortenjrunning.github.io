@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Deltageroversikt</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyCKfBFUoW6PMebU2TrTMkvTAFI1ePdA10g",
+          authDomain: "it01-4dae5.firebaseapp.com",
+          databaseURL: "https://it01-4dae5.firebaseio.com",
+          projectId: "it01-4dae5",
+          storageBucket: "it01-4dae5.appspot.com",
+          messagingSenderId: "942475831825"
+        };
+        firebase.initializeApp(config);
+      </script>
+
+<link rel="stylesheet" type="text/css" href="Stylesheet.css"</link>
+
+  </head>
+  <body>
+
+      <header>
+        <a href="Hovedside.html"><img id="Logo" src="Bilder/Logo.png" alt="Logo"></a>
+      <nav>
+        <div id="NAV">
+        <div class="nav1"><a href="registrerNy.html">Meld deg på her!</a></div>
+        <div class="nav2"><a href="Deltageroversikt.html">Deltageroversikt</a></div>
+          <div class="nav3"><a href="Hovedside.html">Hovedside</a></div>
+        </div>
+      </nav>
+
+      <section id="Knapper">
+
+      <button onclick="visBiler()">Biler</button>
+      <button onclick="visMopeder()">Mopeder</button>
+      <button onclick="visTraktorer()">Traktorer</button>
+      <div class="dropdown">
+        <span>Parkering</span>
+      <div class="dropdown-content">
+
+        <button onclick="visPlassA()">Plass A</button>
+        <button onclick="visPlassB()">Plass B</button>
+        <button onclick="visPlassC()">Plass C</button>
+        <button onclick="visPlassD()">Plass D</button>
+      </div>
+      </div>
+
+      <button onclick="sorterNavn()">Navn (a-å)</button>
+      <button onclick="sorterAdresse()">Adresse (a-å)</button>
+
+    </section>
+
+      </header>
+
+      <main>
+
+
+      <script>
+
+        const main = document.querySelector("main");
+        const db = firebase.database();
+        const messe = db.ref("Deltagere");
+
+        function genererHTML(snap){
+          let messe = snap.val();
+          let key = snap.key;
+          main.innerHTML +=`
+            <div class="innhold">
+
+              <h1>${messe.navn}</h1>
+              <p>Adresse:${messe.adresse}</p>
+              <p>Type kjøretøy:${messe.type}</p>
+              <p>Ønsket plass:${messe.plass}</p>
+              <p>Tlf:${snap.key}</p>
+              <a href="messeDetaljer.html?id=${key}"> Detaljer </a>
+            </div>
+        `
+        }
+        //on er en spørring, her på alt sammen. Sender resultatet til funksjonen genererHTML
+        messe.on("child_added",genererHTML);
+
+        function visBiler(){
+                main.innerHTML = ``
+                messe.orderByChild("type").equalTo("B").on("child_added",genererHTML);
+              }
+              function visMopeder(){
+                main.innerHTML = ``
+                messe.orderByChild("type").equalTo("AM146").on("child_added",genererHTML);
+              }
+
+              function visTraktorer(){
+                main.innerHTML = ``
+                messe.orderByChild("type").equalTo("T").on("child_added",genererHTML);
+              }
+
+              function visPlassA(){
+                main.innerHTML = ``
+                messe.orderByChild("plass").equalTo("A").on("child_added",genererHTML);
+              }
+
+              function visPlassB(){
+                main.innerHTML = ``
+                messe.orderByChild("plass").equalTo("B").on("child_added",genererHTML);
+              }
+
+              function visPlassC(){
+                main.innerHTML = ``
+                messe.orderByChild("plass").equalTo("C").on("child_added",genererHTML);
+              }
+
+              function visPlassD(){
+                main.innerHTML = ``
+                messe.orderByChild("plass").equalTo("D").on("child_added",genererHTML);
+              }
+
+              function sorterNavn(){
+                main.innerHTML = ``
+                messe.orderByChild("navn").on("child_added",genererHTML);
+
+              }
+
+              function sorterAdresse(){
+                main.innerHTML = ``
+                messe.orderByChild("adresse").on("child_added",genererHTML)
+
+
+              }
+
+
+      </script>
+
+
+    </main>
+
+    <footer>
+  <button onclick="goBack()">Tilbake</button>
+  <script>
+  function goBack() {window.history.back();}
+  </script>
+  </footer>
+  </body>
+</html>

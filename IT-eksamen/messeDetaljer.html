@@ -19,9 +19,27 @@
             firebase.initializeApp(config);
           </script>
 
+<link rel="stylesheet" type="text/css" href="Stylesheet.css"</link>
+
+
   </head>
+
+
   <body>
-    <main>
+
+    <header>
+      <a href="Hovedside.html"><img id="Logo" src="Bilder/Logo.png" alt="Logo"></a>
+    <nav>
+      <div id="NAV">
+      <div class="nav1"><a href="registrerNy.html">Meld deg på her!</a></div>
+      <div class="nav2"><a href="Deltageroversikt.html">Deltageroversikt</a></div>
+      <div class="nav3"><a href="Hovedside.html">Hovedside</a></div>
+      </div>
+    </nav>
+    </header>
+
+<main id="messemain">
+
 
 
 
@@ -41,13 +59,13 @@
           key = snap.key;
           console.log(valgtDeltager);
           main.innerHTML = `
-
+          <div class="Detaljer">
           <h1>Navn: ${valgtDeltager.navn}</h1>
           <p>Adresse: ${valgtDeltager.adresse}</p>
           <p>Tlf: ${key}</p>
           <p>Type kjøretøy: ${valgtDeltager.type}</p>
           <p>Øsket plass: ${valgtDeltager.plass}</p>
-
+          </div>
           `
         }
 
@@ -61,9 +79,16 @@
       </script>
 
 
-
-    </main>
+</main>
     <button onclick="slettDeltager()">Fjern deltager</button>
 
+    <footer>
+    <button onclick="goBack()">Tilbake</button>
+    <script>
+    function goBack() {window.history.back();}
+    </script>
+    </footer>
+
   </body>
+
 </html>
